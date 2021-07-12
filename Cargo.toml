@@ -7,12 +7,22 @@ edition = "2018"
 name = "tron-client"
 path = "src/client.rs"
 
+[[bin]]
+name = "tools"
+path = "src/tools.rs"
+
 [dependencies]
 tonic = "0.4"
 prost = "0.7"
 prost-types = "0.7"
 hex = "0.4"
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+k256 = { version = "0.9.4", features = ["ecdsa-core"] }
+rand = "0.8.4"
+sha2 = "0.9.5"
+sha3 = "0.9.1"
+bs58 = "0.4.0"
+qr2term = "0.2.2"
 
 [build-dependencies]
 tonic-build = "0.4"
