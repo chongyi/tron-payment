@@ -1,12 +1,14 @@
 use tonic::transport::Channel;
 
 pub use transfer::Transfer;
+pub use resource::Resource;
 
 use crate::apis::wallet_client::WalletClient;
 use crate::key::PrivateKey;
 use crate::Result;
 
 mod transfer;
+mod resource;
 
 pub const DEFAULT_ENDPOINT: &'static str = "http://34.253.187.192:50051";
 
