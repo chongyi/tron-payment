@@ -1,4 +1,4 @@
-use tron_payment::address::*;
+use tron_payment::key::*;
 
 fn main() {
     let pk = PrivateKey::generate();

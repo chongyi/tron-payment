@@ -17,12 +17,17 @@ prost = "0.7"
 prost-types = "0.7"
 hex = "0.4"
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
-k256 = { version = "0.9.4", features = ["ecdsa-core"] }
+k256 = { version = "0.9.4", features = ["ecdsa-core", "keccak256"] }
 rand = "0.8.4"
 sha2 = "0.9.5"
 sha3 = "0.9.1"
 bs58 = "0.4.0"
 qr2term = "0.2.2"
+log = "0.4"
+env_logger = "0.8.4"
+async-trait = "0.1"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
 
 [build-dependencies]
 tonic-build = "0.4"
