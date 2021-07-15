@@ -12,6 +12,7 @@ use k256::ecdsa::signature::Signer;
 use k256::ecdsa::Signature;
 use k256::ecdsa::recoverable;
 use tron_payment::services::{Service, Transfer};
+use tron_payment::predefined::tether_transfer;
 
 
 #[tokio::main]
@@ -24,7 +25,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut service = Service::new().await?;
     let mut agent = service.agent(key);
     let res = agent.transfer(&Address::from_base58("TUCecrsyFh9kzWLqTkDNNXL9zbdaMhpyyc")?, 300000).await?;
-    info!("transfer result: {}", res.unwrap().result);
+    info!("transfer result: {}", res.result);
+
+
+    let res = agent.contract_transfer(
+        &Address::from_base58("THPvaUhoh2Qn2y9THCZML3H815hhFhn5YC")?,
+        &Address::from_base58("TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t")?,
+        tether_transfer(&Address::from_base58("TUCecrsyFh9kzWLqTkDNNXL9zbdaMhpyyc")?, 100000)
+    ).await?;
+    info!("transfer assets result: {}", res.result);
 
     Ok(())
 }

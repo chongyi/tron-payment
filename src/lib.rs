@@ -9,6 +9,8 @@ pub mod key;
 pub mod apis;
 pub mod utils;
 pub mod services;
+pub mod predefined;
+pub mod error;
 
 pub use anyhow::Result;
 

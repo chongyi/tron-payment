@@ -91,6 +91,14 @@ pub struct Address {
     base_check: BaseCheck,
 }
 
+impl Deref for Address {
+    type Target = [u8];
+
+    fn deref(&self) -> &Self::Target {
+        &self.raw_address
+    }
+}
+
 impl Into<Vec<u8>> for Address {
     fn into(self) -> Vec<u8> {
         self.raw_address.to_vec()
